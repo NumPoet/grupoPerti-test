@@ -1,9 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { IonSlides } from '@ionic/angular';
-import { UsuarioService } from '../../services/usuario.service';
+import { IonSlides, NavController } from '@ionic/angular';
 
 import { Storage } from '@ionic/storage-angular';
+
+import { UiServiceService } from 'src/app/services/ui-service.service';
+import { UsuarioService } from '../../services/usuario.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -35,8 +38,10 @@ export class LoginPage implements OnInit {
   };
 
   constructor(
-    private usuarioService: UsuarioService,
-    private storage: Storage
+      private usuarioService: UsuarioService,
+      private storage: Storage,
+      private navCtrl: NavController,
+      private uiService: UiServiceService
     ) { 
  
 
@@ -83,17 +88,41 @@ export class LoginPage implements OnInit {
     
   }
 
-  login( flogin: NgForm ) {
+  async login( flogin: NgForm ) {
 
     // console.log(this.loginUser);
-    this.usuarioService.login(this.loginUser.email, this.loginUser.password);
+    const valido = await this.usuarioService.login(this.loginUser.email, this.loginUser.password);
+
+    if (valido) {
+      /**NAVEGAR  A LA APP */
+      this.navCtrl.navigateRoot('/main/tabs/tab1', {
+        animated: true
+      });
+      
+    } else {
+      /**MOSTRAR ALERTA */
+
+      this.uiService.alertaExcepcion('El correo y/o contraseña NO están registrados');
+    }
 
 
   }
 
-  registro( fregistro: NgForm ) {
+  async registro( fregistro: NgForm ) {
+  
+    const valido = await this.usuarioService.register(this.registerUser.email, this.registerUser.nombre, this.registerUser.password);
 
-    this.usuarioService.register(this.registerUser.email, this.registerUser.nombre, this.registerUser.password);
+    if (valido) {
+      /**NAVEGAR  A LA APP */
+      this.slides1.lockSwipes(false);
+      this.slides1.slideTo(0);
+      
+    } else {
+      /**MOSTRAR ALERTA */
+
+      this.uiService.alertaExcepcion('Error al registrar');
+    }
+    
 
   }
 

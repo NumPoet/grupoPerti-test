@@ -12,22 +12,39 @@ export class UsuarioService {
     ) { }
 
   
-  login(email: string, password: string) {
+  async login(email: string, password: string) {
 
-    const data = {email, password };
+    
+     let emailSotrage = await this.storage.get('email');
+     let passwordSotrage = await this.storage.get('password');     
+    
+    return new Promise( resolve => {
 
-    console.log(this.storage.get('email'));
+      if (email == emailSotrage  && password == passwordSotrage) {
+        
+        resolve(true);
+      } else {
+        
+        resolve(false);
+      }
+
+    });
 
     
      
   }
 
   register(email: string, nombre: string, password: string) {
-
-    this.storage.set('email', email);
-    this.storage.set('nombre', nombre);
-    this.storage.set('password', password);
-    console.log(this.storage.keys);
-     
+    return new Promise( resolve => {
+      try {
+        this.storage.set('email', email);
+        this.storage.set('nombre', nombre);
+        this.storage.set('password', password);
+        resolve(true);
+      } catch (error) {
+        resolve(false);
+      }
+    });
+      
   }
 }
