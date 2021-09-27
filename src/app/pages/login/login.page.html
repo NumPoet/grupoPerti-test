@@ -10,7 +10,7 @@
 
           <ion-row>
             <ion-col>
-              <img src="/assets/avatars/av-1.png">
+              <img src="./assets/avatars/av-2.png">
             </ion-col>
           </ion-row>
         
@@ -91,6 +91,7 @@
                             <ion-label>Email</ion-label>
                             <ion-input name="email" 
                                         type="email"
+                                        [(ngModel)]="registerUser.email"
                                         required></ion-input>
                             </ion-item>
 
@@ -98,6 +99,7 @@
                             <ion-label>Nombre</ion-label>
                             <ion-input name="nombre"
                                         type="text"
+                                        [(ngModel)]="registerUser.nombre"
                                         required></ion-input>
                             </ion-item>
 
@@ -105,6 +107,7 @@
                             <ion-label>Password</ion-label>
                             <ion-input name="password"
                                         type="password"
+                                        [(ngModel)]="registerUser.password"
                                         required></ion-input>
                             </ion-item>
 
@@ -116,6 +119,7 @@
                 <ion-col>
                     <ion-button type="submit"
                                 color="tertiary"
+                                [disabled]="fRegistro.invalid"
                                 shape="round">
                         Crear usuario
                     </ion-button>

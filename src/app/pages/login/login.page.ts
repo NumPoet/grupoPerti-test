@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { IonSlides } from '@ionic/angular';
+import { UsuarioService } from '../../services/usuario.service';
 
+import { Storage } from '@ionic/storage-angular';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -22,68 +24,76 @@ export class LoginPage implements OnInit {
   }
 
   loginUser = {
-    email: 'test1@test.com',
-    password: '123456'
+    email: '', //test1@test.com
+    password: '' //123456
   };
 
-  constructor() { 
+  registerUser = {
+    email: '',
+    nombre: '',
+    password: ''
+  };
+
+  constructor(
+    private usuarioService: UsuarioService,
+    private storage: Storage
+    ) { 
  
 
   }
 
   avatars = [
     {
-      img: 'av-1.png',
+      img: './av-1.png',
       seleccionado: true
     },
     {
-      img: 'av-2.png',
+      img: './av-2.png',
       seleccionado: false
     },
     {
-      img: 'av-3.png',
+      img: './av-3.png',
       seleccionado: false
     },
     {
-      img: 'av-4.png',
+      img: './av-4.png',
       seleccionado: false
     },
     {
-      img: 'av-5.png',
+      img: './av-5.png',
       seleccionado: false
     },
     {
-      img: 'av-6.png',
+      img: './av-6.png',
       seleccionado: false
     },
     {
-      img: 'av-7.png',
+      img: './av-7.png',
       seleccionado: false
     },
     {
-      img: 'av-8.png',
+      img: './av-8.png',
       seleccionado: false
     },
 ];
 
-  ngOnInit() {
+  async ngOnInit() {
     // this.slides1.lockSwipes(true);
-   
+    await this.storage.create();
     
   }
 
   login( flogin: NgForm ) {
 
+    // console.log(this.loginUser);
+    this.usuarioService.login(this.loginUser.email, this.loginUser.password);
 
-    console.log(flogin.valid);
-    console.log(this.loginUser);
-    
 
   }
 
   registro( fregistro: NgForm ) {
 
-    console.log(fregistro.valid);
+    this.usuarioService.register(this.registerUser.email, this.registerUser.nombre, this.registerUser.password);
 
   }
 

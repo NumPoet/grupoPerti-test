@@ -16,5 +16,18 @@ export class UsuarioService {
 
     const data = {email, password };
 
+    console.log(this.storage.get('email'));
+
+    
+     
+  }
+
+  register(email: string, nombre: string, password: string) {
+
+    this.storage.set('email', email);
+    this.storage.set('nombre', nombre);
+    this.storage.set('password', password);
+    console.log(this.storage.keys);
+     
   }
 }
