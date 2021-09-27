@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Storage } from '@ionic/storage-angular';
+import { NavController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,8 @@ import { Storage } from '@ionic/storage-angular';
 export class UsuarioService {
 
   constructor(
-    private storage: Storage
+    private storage: Storage,
+    private navCtrl: NavController
     ) { }
 
   
@@ -47,4 +49,12 @@ export class UsuarioService {
     });
       
   }
+
+  logout() {
+   
+    // this.storage.clear();
+    this.navCtrl.navigateRoot('/login', { animated: true });
+    
+ }
+
 }

@@ -135,6 +135,7 @@ export class LoginPage implements OnInit {
   }
 
   mostrarRegistro() {
+
     this.slides1.lockSwipes(false);
     this.slides1.slideTo(1);
     this.slides1.lockSwipes(true);
@@ -142,7 +143,6 @@ export class LoginPage implements OnInit {
   }
 
   mostrarLogin() {
-
     this.slides1.lockSwipes(false);
     this.slides1.slideTo(0);
     this.slides1.lockSwipes(true);
