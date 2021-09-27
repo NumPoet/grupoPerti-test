@@ -1,6 +1,12 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-   
+    <ion-title size="large">Tab 1</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="logOut()"
+                    color="secondary">
+          <ion-icon slot="start" name="exit"></ion-icon>
+        </ion-button>
+      </ion-buttons>
     <!-- <ion-title>
       Tab 1
     </ion-title> -->
