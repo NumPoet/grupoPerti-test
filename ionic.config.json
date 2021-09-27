@@ -1,5 +1,7 @@
 {
   "name": "SergioNegreteVillegas",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
