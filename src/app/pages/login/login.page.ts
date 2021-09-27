@@ -44,35 +44,35 @@ export class LoginPage implements OnInit {
 
   avatars = [
     {
-      img: '../assets/avatars/av-1.png',
+      img: 'av-1.png',
       seleccionado: true
     },
     {
-      img: '../assets/avatars/av-2.png',
+      img: 'av-2.png',
       seleccionado: false
     },
     {
-      img: '../assets/avatars/av-3.png',
+      img: 'av-3.png',
       seleccionado: false
     },
     {
-      img: '../assets/avatars/av-4.png',
+      img: 'av-4.png',
       seleccionado: false
     },
     {
-      img: '../assets/avatars/av-5.png',
+      img: 'av-5.png',
       seleccionado: false
     },
     {
-      img: '../assets/avatars/av-6.png',
+      img: 'av-6.png',
       seleccionado: false
     },
     {
-      img: '../assets/avatars/av-7.png',
+      img: 'av-7.png',
       seleccionado: false
     },
     {
-      img: '../assets/avatars/av-8.png',
+      img: 'av-8.png',
       seleccionado: false
     },
 ];
