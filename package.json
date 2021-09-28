@@ -26,6 +26,7 @@
     "@ionic/storage": "^3.0.6",
     "@ionic/storage-angular": "^3.0.6",
     "localforage-cordovasqlitedriver": "^1.8.0",
+    "onesignal-ngx": "^1.0.0-beta2",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
