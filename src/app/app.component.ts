@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { PushService } from './services/push.service';
 import { Platform } from '@ionic/angular';
-import OneSignal from 'onesignal-cordova-plugin';
-import { OneSignalService } from 'onesignal-ngx';
+// import OneSignal from 'onesignal-cordova-plugin';
+// import { OneSignalService } from 'onesignal-ngx';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -14,7 +14,7 @@ export class AppComponent {
 
   constructor(
     private platform: Platform, 
-    private oneSignal: OneSignalService
+    // private oneSignal: OneSignalService
   ) {
 
 
@@ -28,9 +28,9 @@ export class AppComponent {
   initializeApp() {
 
     this.platform.ready().then(() => {
-      this.oneSignal.init({
-        appId: "f18b8a43-5de5-4798-be29-62bb587f1a7a",
-      });
+      // this.oneSignal.init({
+      //   appId: "f18b8a43-5de5-4798-be29-62bb587f1a7a",
+      // });
       // OneSignalInit();
       // this.pushService.configuracionInicial();
     });
