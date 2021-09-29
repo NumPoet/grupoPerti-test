@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 // import { OneSignal } from '@ionic-native/onesignal/ngx';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class PushService {
 
   constructor(
-    // private oneSignal: OneSignal
+    // private afMessaging: AngularFireMessaging
     ) { }
 
   configuracionInicial() {
@@ -29,10 +30,6 @@ export class PushService {
 
     // this.oneSignal.endInit();
   
-
-
-
   }
-
 
 }

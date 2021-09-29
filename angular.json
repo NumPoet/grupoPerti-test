@@ -30,9 +30,14 @@
                 "input": "node_modules/ionicons/dist/ionicons/svg",
                 "output": "./svg"
               },
-              "src/manifest.webmanifest"
+              "src/manifest.webmanifest",
+              "src/combined-sw.js",
+              "src/firebase-messaging-sw.js"
             ],
-            "styles": ["src/theme/variables.scss", "src/global.scss"],
+            "styles": [
+              "src/theme/variables.scss",
+              "src/global.scss"
+            ],
             "scripts": [],
             "aot": false,
             "vendorChunk": true,
@@ -170,6 +175,10 @@
               "devServerTarget": "app:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }

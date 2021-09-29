@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "prueba-a51b0": {
+      "hosting": {
+        "app": [
+          "prueba-a51b0"
+        ]
+      }
+    }
+  }
+}
